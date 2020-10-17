@@ -4,7 +4,7 @@ void	rush(int x, int y)
 {
 	int xCol=0;
 	int yLig=0;
-	char tab[y][x];
+
 	while (yLig<y)
 	{
 		while(xCol<x)

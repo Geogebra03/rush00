@@ -8,7 +8,7 @@ int main()
 	write(1,"\n",1);
 	rush(5,1);
 	write(1,"\n",1);
-	rush(1,1);
+	rush(1,5);
 	write(1,"\n",1);
 	rush(1,1);
 	write(1,"\n",1);
