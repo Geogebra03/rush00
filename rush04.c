@@ -1,31 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush04.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sxu <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/17 15:34:43 by sxu               #+#    #+#             */
+/*   Updated: 2020/10/17 17:26:07 by sxu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_putchar(char c);
+
+void	print_line(int x, char o, char p, char q)
+{
+	int col;
+
+	col = 1;
+	while (col <= x)
+	{
+		if (col == 1)
+			ft_putchar(o);
+		else if (col == x)
+			ft_putchar(q);
+		else
+			ft_putchar(p);
+		col++;
+	}
+	ft_putchar('\n');
+}
 
 void	rush(int x, int y)
 {
-	int xCol=0;
-	int yLig=0;
-	char tab[y][x];
-	while (yLig<y)
+	int line;
+
+	if (x <= 0 || y <= 0)
+		return ;
+	line = 1;
+	while (line == 1)
 	{
-		while(xCol<x)
-		{
-			if((xCol==0 && yLig==0) || (xCol==x-1 && yLig==y-1))
-				ft_putchar('A');
-			else if((xCol==0 && yLig==y-1) || (xCol==x-1 && yLig==0))
-				ft_putchar('C');
-			else if(xCol==0 && (yLig >0 || yLig <y-1))
-				ft_putchar('B');
-			else if(xCol==x-1 && (yLig>0 || yLig<y-1))
-				ft_putchar('B');
-			else if(yLig==0 && (xCol>0 || xCol<x-1))
-				ft_putchar('B');
-			else if(yLig==y-1 && (xCol>0 || xCol<x-1))
-				ft_putchar('B');
-			else ft_putchar(' ');
-			xCol++;
-		}
-		xCol=0;
-		yLig++;
-		ft_putchar('\n');
+		print_line(x, 'A', 'B', 'C');
+		line++;
+	}
+	while (line > 1 && line < y)
+	{
+		print_line(x, 'B', ' ', 'B');
+		line++;
+	}
+	while (line == y)
+	{
+		print_line(x, 'C', 'B', 'A');
+		line++;
 	}
 }
